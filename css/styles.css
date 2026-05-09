@@ -80,7 +80,15 @@ nav ul li.active {
   overflow: hidden;
   overflow-x: hidden;
 }
+nav ul li a {
+  color: #9b9b9b;
+  transition: 0.3s;
+}
 
+nav ul li a.active {
+  color: #000;
+  font-weight: 500;
+}
 /* SLIDES */
 
 .slides {
