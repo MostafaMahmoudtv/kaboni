@@ -5,9 +5,10 @@
   font-family: "Poppins", sans-serif;
 }
 
-body {
+html,body {
   overflow-x: hidden;
   background: #fffeef;
+  width: 100%;
 }
 
 header {
@@ -70,12 +71,12 @@ nav ul li.active {
   font-weight: 500;
 }
 
- 
 .hero-slider {
   width: 100%;
   height: 700px;
   position: relative;
   overflow: hidden;
+  overflow-x: hidden;
 }
 
 /* SLIDES */
@@ -105,7 +106,6 @@ nav ul li.active {
 .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.35);
 }
 
 /* CONTENT */
@@ -148,6 +148,15 @@ nav ul li.active {
 
 .content .btn:hover {
   background: #32343a;
+}
+.centered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.centered .btn {
+  margin: auto;
 }
 
 /* ARROWS */
@@ -360,7 +369,7 @@ nav ul li.active {
 .payment-card {
   width: 100%;
   max-width: 1140px;
-margin: auto;
+  margin: auto;
   background: #ffffff;
 
   border: 1px solid #dddddd;
@@ -421,7 +430,7 @@ margin: auto;
 }
 
 .payment-btn:hover {
-  background:  #32343a;
+  background: #32343a;
 }
 
 /* =========================
@@ -471,10 +480,9 @@ margin: auto;
 .about-content {
   flex: 1;
   max-width: 430px;
-    display: flex;
-    flex-direction: column;
-          justify-content: center;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .small-title {
@@ -484,7 +492,6 @@ margin: auto;
   margin-bottom: 1.5rem;
   text-align: center;
   text-transform: uppercase;
-  
 }
 
 .about-content h2 {
@@ -494,7 +501,6 @@ margin: auto;
   text-align: center;
   margin-bottom: 1.5rem;
   line-height: 1.1;
-
 }
 
 .about-content p {
@@ -520,8 +526,8 @@ margin: auto;
 }
 
 .about-btn:hover {
-  background:  #32343a;
- }
+  background: #32343a;
+}
 
 .about-image {
   flex: 1.3;
@@ -600,9 +606,9 @@ margin: auto;
 .team-content {
   flex: 1;
   max-width: 450px;
-    display: flex;
-     flex-direction: column;
-             justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .small-title {
@@ -645,7 +651,7 @@ margin: auto;
 
 .team-btn:hover {
   background: #32343a;
- }
+}
 
 /* Responsive */
 
@@ -688,7 +694,7 @@ margin: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding:  40px 40px 0  40px ;
+  padding: 40px 40px 0 40px;
 }
 
 .video-box {
@@ -745,7 +751,7 @@ margin: auto;
 }
 
 .logo {
-  width:377px;
+  width: 377px;
   max-width: 100%;
   margin: 0 auto 120px;
   display: block;
@@ -805,7 +811,7 @@ margin: auto;
 }
 
 .subscribe-btn:hover {
-  background:  #32343a ;
+  background: #32343a;
 }
 
 .message {
@@ -816,7 +822,6 @@ margin: auto;
 }
 
 @media (max-width: 768px) {
-  
   .logo {
     margin-bottom: 70px;
   }
@@ -855,12 +860,12 @@ margin: auto;
 footer {
   width: 100%;
   background: #ffffff;
-   border-top: 1px solid #7f7f7f;
-  padding:60px 0 ;
+  border-top: 1px solid #7f7f7f;
+  padding: 60px 0;
 }
 
 .footer-container {
-  max-width: 1400px ;
+  max-width: 1400px;
   margin: auto;
 }
 
@@ -869,8 +874,8 @@ footer {
   justify-content: space-around;
   align-items: flex-start;
   gap: 80px;
-      width: 1194px;
-    margin: auto;
+  width: 1194px;
+  margin: auto;
   flex-wrap: wrap;
 }
 
@@ -887,7 +892,7 @@ footer {
   display: flex;
   gap: 140px;
   flex-wrap: wrap;
- }
+}
 
 .footer-column h3 {
   font-size: 14px;
@@ -927,10 +932,10 @@ footer {
 
 .copyright {
   text-align: center;
-   font-size: 16px;
+  font-size: 16px;
   color: #444;
   margin-top: 30px;
- }
+}
 
 /* RESPONSIVE */
 
@@ -988,23 +993,26 @@ footer {
   transform: translateY(0);
 }
 @media (max-width: 1024px) and (min-width: 768px) {
-html,body {
-width: 100%;
-overflow-x: hidden;
-
-}
+  html,
+  body {
+    width: 100%;
+    overflow-x: hidden;
+  }
   .hero-slider {
     height: 500px;
   }
-  .about,.team,.video-section,.newsletter-section {
+  .about,
+  .team,
+  .video-section,
+  .newsletter-section {
     min-height: auto;
-   }
-   .top-text{
+  }
+  .top-text {
     margin-top: 1rem;
-   }
-.footer-links{
+  }
+  .footer-links {
     margin-top: unset;
-}
+  }
   nav ul {
     gap: 25px;
   }
@@ -1022,14 +1030,11 @@ overflow-x: hidden;
   /* ABOUT + TEAM */
   .about-container,
   .team-container {
-    
   }
 
   .about-content,
   .team-content {
-    
   }
- 
 
   .about-image img,
   .team-image img {
@@ -1048,23 +1053,22 @@ overflow-x: hidden;
   }
 }
 @media (max-width: 767px) {
-  html,body{
-        width: 100%;
-        overflow-x: hidden;
-        padding: 0;
-
-    }
+  html,
+  body {
+    width: 100%;
+    overflow-x: hidden;
+    padding: 0;
+  }
 }
-@media (max-width:768px){
-
-  header{
+@media (max-width: 768px) {
+  header {
     height: 90px;
     padding: 0 20px;
     position: relative;
   }
 
   /* زرار المينيو */
-  .menu-toggle{
+  .menu-toggle {
     width: 35px;
     height: 25px;
     display: flex;
@@ -1074,7 +1078,7 @@ overflow-x: hidden;
     z-index: 1001;
   }
 
-  .menu-toggle span{
+  .menu-toggle span {
     width: 100%;
     height: 2px;
     background: #000;
@@ -1082,7 +1086,7 @@ overflow-x: hidden;
   }
 
   /* المنيو */
-  nav{
+  nav {
     display: none;
 
     position: absolute;
@@ -1096,29 +1100,28 @@ overflow-x: hidden;
     z-index: 999;
   }
 
-  nav.active{
+  nav.active {
     display: block;
   }
 
-  nav ul{
+  nav ul {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 25px;
   }
 }
-@media (max-width:768px){
-
-  .hero-slider{
+@media (max-width: 768px) {
+  .hero-slider {
     height: 100vh;
   }
 
-  .slide img{
+  .slide img {
     height: 100%;
     object-fit: cover;
   }
 
-  .content{
+  .content {
     left: 20px;
     right: 20px;
     top: 50%;
@@ -1126,104 +1129,101 @@ overflow-x: hidden;
     max-width: 100%;
   }
 
-  .content h1{
+  .content h1 {
     font-size: 34px;
     line-height: 1.2;
     margin-bottom: 15px;
   }
 
-  .content p{
+  .content p {
     font-size: 16px;
     line-height: 1.7;
     margin-bottom: 25px;
   }
 
-  .content .btn{
+  .content .btn {
     padding: 14px 22px;
     font-size: 12px;
     letter-spacing: 1px;
   }
 
-  .arrow{
+  .arrow {
     font-size: 30px;
   }
 
-  .prev{
+  .prev {
     left: 15px;
   }
 
-  .next{
+  .next {
     right: 15px;
   }
 
-  .dots{
+  .dots {
     bottom: 25px;
   }
 }
-@media (max-width:768px){
-
-  .hero-slider{
+@media (max-width: 768px) {
+  .hero-slider {
     width: 100%;
     overflow: hidden;
   }
 
-  .slides{
+  .slides {
     display: flex;
     width: 100%;
   }
 
-  .slide{
+  .slide {
     min-width: 100%;
     width: 100%;
     flex-shrink: 0;
     overflow: hidden;
   }
 
-  .slide img{
+  .slide img {
     width: 100%;
     display: block;
   }
-  .about-image img,.team-image img  {
+  .about-image img,
+  .team-image img {
     width: 346px;
   }
-  .video-section{
+  .video-section {
     min-height: auto;
   }
-
 }
-@media (max-width:768px){
-
-  footer{
+@media (max-width: 768px) {
+  footer {
     padding: 50px 20px 25px;
   }
 
-  .footer-content{
+  .footer-content {
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
     margin-top: 1rem;
     text-align: start;
-    gap:20px;
+    gap: 20px;
   }
 
-  .footer-links{
+  .footer-links {
     flex-direction: column;
     gap: 40px;
     align-items: center;
   }
 
-  .footer-logo img{
+  .footer-logo img {
     width: 150px;
   }
 
-  .footer-award img{
+  .footer-award img {
     width: 170px;
   }
 
-  .copyright{
+  .copyright {
     margin-top: 40px;
     line-height: 1.8;
     font-size: 14px;
   }
-
 }

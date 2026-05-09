@@ -1,55 +1,109 @@
-// ================= SLIDER =================
 const slides = document.querySelector(".slides");
-const slide = document.querySelectorAll(".slide");
+const allSlides = document.querySelectorAll(".slide");
 const dots = document.querySelectorAll(".dot");
 
 const next = document.querySelector(".next");
 const prev = document.querySelector(".prev");
 
-let index = 0;
+let index = 1;
+const slideWidth = 100;
+let interval;
 
-function updateSlider() {
-  if (!slides || !dots.length) return;
+// ================= CLONE =================
+const firstClone = allSlides[0].cloneNode(true);
+const lastClone = allSlides[allSlides.length - 1].cloneNode(true);
 
-  slides.style.transform = `translateX(-${index * 100}%)`;
+slides.appendChild(firstClone);
+slides.insertBefore(lastClone, allSlides[0]);
 
-  dots.forEach((dot) => dot.classList.remove("active"));
+// start from first real slide
+slides.style.transform = `translateX(-${slideWidth}%)`;
 
-  if (dots[index]) dots[index].classList.add("active");
+// ================= DOTS =================
+function updateDots() {
+  dots.forEach(dot => dot.classList.remove("active"));
+
+  let realIndex = index - 1;
+
+  if (realIndex < 0) realIndex = dots.length - 1;
+  if (realIndex >= dots.length) realIndex = 0;
+
+  dots[realIndex].classList.add("active");
 }
 
-// NEXT
-if (next) {
-  next.addEventListener("click", () => {
-    index = (index + 1) % slide.length;
-    updateSlider();
-  });
+// ================= MOVE =================
+function moveToIndex() {
+  slides.style.transition = "transform 0.6s ease-in-out";
+  slides.style.transform = `translateX(-${index * slideWidth}%)`;
+  updateDots();
 }
 
-// PREV
-if (prev) {
-  prev.addEventListener("click", () => {
-    index = (index - 1 + slide.length) % slide.length;
-    updateSlider();
-  });
+// ================= NEXT =================
+function goNext() {
+  if (index >= allSlides.length + 1) return;
+  index++;
+  moveToIndex();
 }
 
-// DOTS
+// ================= PREV =================
+function goPrev() {
+  if (index <= 0) return;
+  index--;
+  moveToIndex();
+}
+
+// ================= RESET (INFINITE FIX) =================
+slides.addEventListener("transitionend", () => {
+  // لو وصلنا للـ clone الأخير
+  if (index === allSlides.length + 1) {
+    slides.style.transition = "none";
+    index = 1;
+    slides.style.transform = `translateX(-${slideWidth}%)`;
+  }
+
+  // لو رجعنا لأول clone
+  if (index === 0) {
+    slides.style.transition = "none";
+    index = allSlides.length;
+    slides.style.transform = `translateX(-${index * slideWidth}%)`;
+  }
+});
+
+// ================= DOT CLICK =================
 dots.forEach((dot, i) => {
   dot.addEventListener("click", () => {
-    index = i;
-    updateSlider();
+    index = i + 1;
+    moveToIndex();
+    resetAuto(); // مهم علشان الريست
   });
 });
 
-// AUTO SLIDE
-if (slide.length) {
-  setInterval(() => {
-    index = (index + 1) % slide.length;
-    updateSlider();
-  }, 7000);
+// ================= AUTO =================
+function startAuto() {
+  interval = setInterval(() => {
+    goNext();
+  }, 4000);
 }
 
+function resetAuto() {
+  clearInterval(interval);
+  startAuto();
+}
+
+// ================= EVENTS =================
+next.addEventListener("click", () => {
+  goNext();
+  resetAuto();
+});
+
+prev.addEventListener("click", () => {
+  goPrev();
+  resetAuto();
+});
+
+// ================= INIT =================
+updateDots();
+startAuto();
 // ================= ZOOM =================
 const zoomBox = document.getElementById("zoomBox");
 
