@@ -140,11 +140,7 @@ button {
 }
 
 /* RESPONSIVE */
-@media (max-width: 768px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
-}
+
 .bg-payment {
   inset: 0;
   background: rgba(255, 255, 255, 0.85);
@@ -159,4 +155,181 @@ button {
   font-size: 16px;
   line-height: 28px !important;
   color: #7c7b70;
+}
+ @media (max-width: 768px) {
+   
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .payment-section {
+    padding: 20px 12px;
+  }
+
+  .bg-payment {
+    padding: 25px 18px;
+    width: 100%;
+  }
+
+  .bg-payment h1 {
+    font-size: 30px;
+    line-height: 1.3;
+  }
+
+  h2 {
+    font-size: 24px;
+    line-height: 1.4;
+    margin: 25px 0 18px;
+  }
+
+  .desc,
+  .big p,
+  .card p {
+    font-size: 15px;
+    line-height: 26px !important;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .card {
+    padding: 18px;
+  }
+
+  .card h3 {
+    font-size: 22px;
+    line-height: 32px;
+  }
+
+  /* الأزرار تحت بعض */
+  .actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .actions a {
+    width: 100%;
+  }
+
+  .actions button,
+  .full {
+    width: 100%;
+    font-size: 14px;
+    padding: 14px 18px;
+    text-align: center;
+  }
+
+  button {
+    white-space: normal;
+    line-height: 1.4;
+  }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+@media (max-width: 480px) {
+  .bg-payment {
+    padding: 20px 14px;
+  }
+
+  .bg-payment h1 {
+    font-size: 26px;
+  }
+
+  h2 {
+    font-size: 21px;
+  }
+
+  .card h3 {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .desc,
+  .big p,
+  .card p {
+    font-size: 14px;
+    line-height: 24px !important;
+  }
+
+  .actions button,
+  .full {
+    font-size: 13px;
+    padding: 13px 14px;
+  }
+}
+/* =========================
+   TABLET RESPONSIVE
+========================= */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .payment-section {
+    padding: 40px 25px;
+  }
+
+  .bg-payment {
+    padding: 35px 30px;
+    width: 100%;
+  }
+
+  .bg-payment h1 {
+    font-size: 38px;
+    line-height: 1.3;
+  }
+
+  h2 {
+    font-size: 28px;
+    margin: 25px 0 20px;
+  }
+
+  .desc,
+  .big p,
+  .card p {
+    font-size: 15px;
+    line-height: 26px !important;
+  }
+
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+
+  .card {
+    padding: 22px;
+  }
+
+  .card h3 {
+    font-size: 22px;
+    line-height: 32px;
+  }
+
+  /* أزرار الكارد الكبيرة */
+  .actions {
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 10px;
+  }
+
+  .actions a {
+    width: 100%;
+  }
+
+  .actions button,
+  .full {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  button {
+    white-space: normal;
+    line-height: 1.4;
+  }
 }
