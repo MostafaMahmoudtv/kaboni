@@ -21,7 +21,7 @@ slides.style.transform = `translateX(-${slideWidth}%)`;
 
 // ================= DOTS =================
 function updateDots() {
-  dots.forEach(dot => dot.classList.remove("active"));
+  dots.forEach((dot) => dot.classList.remove("active"));
 
   let realIndex = index - 1;
 
@@ -181,7 +181,7 @@ footerLinks.forEach((link) => {
 });
 window.addEventListener("DOMContentLoaded", () => {
   const animatedSections = document.querySelectorAll(
-    ".about-content, .team-content"
+    ".about-content, .team-content",
   );
 
   const observer = new IntersectionObserver(
@@ -196,7 +196,7 @@ window.addEventListener("DOMContentLoaded", () => {
     },
     {
       threshold: 0.2,
-    }
+    },
   );
 
   animatedSections.forEach((el) => observer.observe(el));
