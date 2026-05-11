@@ -165,7 +165,7 @@ nav ul li a.active {
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  max-width: 70%;
+  max-width: 100%;
 }
 .centered .btn {
   margin: auto;
