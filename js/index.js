@@ -6,7 +6,6 @@ const next = document.querySelector(".next");
 const prev = document.querySelector(".prev");
 
 let index = 1;
-const slideWidth = 100;
 let interval;
 
 // ================= CLONE =================
@@ -17,7 +16,7 @@ slides.appendChild(firstClone);
 slides.insertBefore(lastClone, allSlides[0]);
 
 // start from first real slide
-slides.style.transform = `translateX(-${slideWidth}%)`;
+slides.style.transform = `translateX(-100%)`;
 
 // ================= DOTS =================
 function updateDots() {
@@ -34,13 +33,14 @@ function updateDots() {
 // ================= MOVE =================
 function moveToIndex() {
   slides.style.transition = "transform 0.6s ease-in-out";
-  slides.style.transform = `translateX(-${index * slideWidth}%)`;
+  slides.style.transform = `translateX(-${index * 100}%)`;
   updateDots();
 }
 
 // ================= NEXT =================
 function goNext() {
   if (index >= allSlides.length + 1) return;
+
   index++;
   moveToIndex();
 }
@@ -48,24 +48,25 @@ function goNext() {
 // ================= PREV =================
 function goPrev() {
   if (index <= 0) return;
+
   index--;
   moveToIndex();
 }
 
-// ================= RESET (INFINITE FIX) =================
+// ================= RESET =================
 slides.addEventListener("transitionend", () => {
-  // لو وصلنا للـ clone الأخير
+  // آخر clone
   if (index === allSlides.length + 1) {
     slides.style.transition = "none";
     index = 1;
-    slides.style.transform = `translateX(-${slideWidth}%)`;
+    slides.style.transform = `translateX(-100%)`;
   }
 
-  // لو رجعنا لأول clone
+  // أول clone
   if (index === 0) {
     slides.style.transition = "none";
     index = allSlides.length;
-    slides.style.transform = `translateX(-${index * slideWidth}%)`;
+    slides.style.transform = `translateX(-${index * 100}%)`;
   }
 });
 
@@ -74,7 +75,7 @@ dots.forEach((dot, i) => {
   dot.addEventListener("click", () => {
     index = i + 1;
     moveToIndex();
-    resetAuto(); // مهم علشان الريست
+    resetAuto();
   });
 });
 
